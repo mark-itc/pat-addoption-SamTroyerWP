@@ -30,9 +30,9 @@ const AddPet = () => {
     const sendRequest = async () => {
         await axios.post("http://localhost:5000/pets", {
             name: String(inputs.name),
-            author: String(inputs.author),
+            type: String(inputs.type),
             description: String(inputs.description),
-            price: Number(inputs.price),
+            breed: Number(inputs.breed),
             image: String(inputs.image),
             available: Boolean(checked)
         }).then(res => res.data)
@@ -59,7 +59,7 @@ const AddPet = () => {
         }}>
             <FormLabel>Name</FormLabel>
             <TextField value={inputs.name} onChange={handleChange} margin='normal' fullWidth variant='outlined' name='name' />
-            <FormLabel>Author</FormLabel>
+            <FormLabel>Pet Type</FormLabel>
             <TextField value={inputs.author} onChange={handleChange} margin='normal' fullWidth variant='outlined' name='author' />
             <FormLabel>Description</FormLabel>
             <TextField value={inputs.description} onChange={handleChange} margin='normal' fullWidth variant='outlined' name='description' />

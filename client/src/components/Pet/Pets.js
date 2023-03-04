@@ -3,7 +3,7 @@ import axios from 'axios';
 import Pet from './Pet';
 import './Pet.css'
 
-const URL = 'http://localhost:5000/pets/';
+const URL = 'http://localhost:6000/pets/';
 
 const fetchHandler = async () => {
         return await axios.get(URL)

@@ -66,7 +66,7 @@ const PetDetail = () => {
                     }}>
                         <FormLabel>Name</FormLabel>
                         <TextField value={inputs.name} onChange={handleChange} margin='normal' fullWidth variant='outlined' name='name' />
-                        <FormLabel>Author</FormLabel>
+                        <FormLabel>Pet Type</FormLabel>
                         <TextField value={inputs.author} onChange={handleChange} margin='normal' fullWidth variant='outlined' name='author' />
                         <FormLabel>Description</FormLabel>
                         <TextField value={inputs.description} onChange={handleChange} margin='normal' fullWidth variant='outlined' name='description' />
