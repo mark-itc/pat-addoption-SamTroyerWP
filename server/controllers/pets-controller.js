@@ -32,16 +32,17 @@ const getById = async (req, res, next) => {
 
 
 const addPet = async(req, res, next) => {
-    const {name, author, description, price, available, image} = req.body
+    const {name, type, description, breed, available, image, createdAt} = req.body
     let pet;
     try {
         pet = new Pet({
             name,
-            author,
+            type,
             description,
-            price,
+            breed,
             available,
-            image
+            image,
+            createdAt
         });
         await pet.save()
     } catch (e) {
@@ -56,14 +57,14 @@ const addPet = async(req, res, next) => {
 
 const updatePet = async(req, res, next) => {
     const id = req.params.id;
-    const {name, author, description, price, available, image} = req.body;
+    const {name, type, description, breed, available, image} = req.body;
     let pet;
     try {
         pet = await Pet.findByIdAndUpdate(id, {
             name,
-            author,
+            type,
             description,
-            price,
+            breed,
             available,
             image
         });

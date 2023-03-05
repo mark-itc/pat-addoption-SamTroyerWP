@@ -6,7 +6,7 @@ import axios from 'axios';
 
 const Pet = (props) => {
     const history = useNavigate();
-    const { _id, name, author, description, price, image } = props.pet;
+    const { _id, name, type, description, breed, image } = props.pet;
 
     const deleteHandler = async () => {
       await axios
@@ -18,10 +18,10 @@ const Pet = (props) => {
   return (
     <div className='card'>
       <img src={image} alt={name} />
-      <article><p>posted by:</p> {author}</article>
+      <article><p>pet type:</p> {type}</article>
       <h2>{name}</h2>
       <p>{description}</p>
-      <h1>${price}</h1>
+      <h1>${breed}</h1>
       <Button LinkComponent={Link} to={`/pets/${_id}`}>Update</Button>
       <Button onClick={deleteHandler}>Delete</Button>
     </div>

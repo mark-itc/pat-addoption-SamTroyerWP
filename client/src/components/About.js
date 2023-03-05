@@ -6,7 +6,7 @@ const About = () => {
     <div>
         <Box display='flex' flexDirection='column' alignItems='center'>
             <Typography sx={{fontFamily: "Tahoma"}} variant='h2'>About Paws' Pet Adoption</Typography>
-            <Typography sx={{fontFamily: "Tahoma"}} variant='h3'>By MERN Stack</Typography>
+            <Typography sx={{fontFamily: "Tahoma"}} variant='h3'>More here soon!</Typography>
         </Box>
     </div>
   )

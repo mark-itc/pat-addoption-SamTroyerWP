@@ -6,7 +6,7 @@ const petSchema = new Schema({
         type: String,
         required: true
     },
-    author: {
+    type: {
         type: String,
         required: true
     },
@@ -14,8 +14,8 @@ const petSchema = new Schema({
         type: String,
         required: true
     },
-    price: {
-        type: Number,
+    breed: {
+        type: String,
         required: true
     },
     available: {
@@ -25,7 +25,9 @@ const petSchema = new Schema({
     image: {
         type: String,
         required: true
-    },
+    }
 })
+
+petSchema.set('timestamps', true)
 
 module.exports = mongoose.model("Pet", petSchema)

@@ -9,8 +9,8 @@ const AddPet = () => {
     const [inputs, setInputs] = useState({
         name: '',
         description: '',
-        price: '',
-        author: '',
+        breed: '',
+        type: '',
         image: ''
     })
 
@@ -28,11 +28,11 @@ const AddPet = () => {
     }
 
     const sendRequest = async () => {
-        await axios.post("http://localhost:5000/pets", {
+        await axios.post("http://localhost:6000/pets", {
             name: String(inputs.name),
-            author: String(inputs.author),
+            type: String(inputs.type),
             description: String(inputs.description),
-            price: Number(inputs.price),
+            breed: String(inputs.breed),
             image: String(inputs.image),
             available: Boolean(checked)
         }).then(res => res.data)
@@ -40,7 +40,7 @@ const AddPet = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(inputs, checked)
+        console.log(inputs, checked, new Date.getDate())
         sendRequest().then(() => history('/pets'))
     }
 
@@ -59,12 +59,12 @@ const AddPet = () => {
         }}>
             <FormLabel>Name</FormLabel>
             <TextField value={inputs.name} onChange={handleChange} margin='normal' fullWidth variant='outlined' name='name' />
-            <FormLabel>Author</FormLabel>
+            <FormLabel>Pet Type</FormLabel>
             <TextField value={inputs.author} onChange={handleChange} margin='normal' fullWidth variant='outlined' name='author' />
             <FormLabel>Description</FormLabel>
             <TextField value={inputs.description} onChange={handleChange} margin='normal' fullWidth variant='outlined' name='description' />
-            <FormLabel>Price</FormLabel>
-            <TextField value={inputs.price} onChange={handleChange} margin='normal' fullWidth variant='outlined' name='price' />
+            <FormLabel>Breed</FormLabel>
+            <TextField value={inputs.breed} onChange={handleChange} margin='normal' fullWidth variant='outlined' name='breed' />
             <FormLabel>Image</FormLabel>
             <TextField value={inputs.image} onChange={handleChange} margin='normal' fullWidth variant='outlined' name='image' />
             <FormControlLabel control={<Checkbox checked={checked} onChange={() => setChecked(!checked)} />} label="Available" />
