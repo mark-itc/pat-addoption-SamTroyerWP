@@ -32,7 +32,11 @@ const AddPet = () => {
             name: String(inputs.name),
             type: String(inputs.type),
             description: String(inputs.description),
+<<<<<<< HEAD
             breed: String(inputs.breed),
+=======
+            breed: Number(inputs.breed),
+>>>>>>> f9cf9a53df939f404496ae64faa758c59f778cf1
             image: String(inputs.image),
             available: Boolean(checked)
         }).then(res => res.data)
