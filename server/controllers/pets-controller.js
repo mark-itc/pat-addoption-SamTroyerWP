@@ -57,7 +57,7 @@ const addPet = async(req, res, next) => {
 
 const updatePet = async(req, res, next) => {
     const id = req.params.id;
-    const {name, type, description, breed, available, image} = req.body;
+    const {name, type, description, breed, available, image, updatedAt} = req.body;
     let pet;
     try {
         pet = await Pet.findByIdAndUpdate(id, {
@@ -66,7 +66,8 @@ const updatePet = async(req, res, next) => {
             description,
             breed,
             available,
-            image
+            image,
+            updatedAt
         });
         pet = await pet.save()
     } catch (e) {
