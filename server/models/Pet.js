@@ -18,12 +18,32 @@ const petSchema = new Schema({
         type: String,
         required: true
     },
-    available: {
+    availablity: {
+        type: Boolean,
+        default: true
+    },
+    height: {
+        type: Number,
+        required: true
+    },
+    weight: {
+        type: Number,
+        required: true
+    },
+    color: {
+        type: String,
+        required: true
+    },
+    hypoallergenic: {
         type: Boolean,
         required: true
     },
-    image: {
+    diet: {
         type: String,
+        required: true
+    },
+    image: {
+        type: [String],
         required: true
     }
 })

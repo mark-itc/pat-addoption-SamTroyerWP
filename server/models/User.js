@@ -32,7 +32,12 @@ const userSchema = new Schema({
         type: Number,
         required: true,
         minLength: 10
-    }
-})
+    },
+    isAdmin: {
+        type: Boolean,
+        default: false
+    },
+}, {timestamps: true}
+)
 
 module.exports = mongoose.model('User', userSchema)

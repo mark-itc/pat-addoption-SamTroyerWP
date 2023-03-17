@@ -1,19 +1,4 @@
-const Pet = require('../model/Pet')
-
-const getAllPets = async (req, res, next) => {
-    let pets;
-
-    try {
-        pets = await Pet.find();
-    } catch (e) {
-        console.log(e)
-    }
-
-        if (!pets) {
-            return res.status(404).json({message: "No pets found"})   
-        }
-        return res.status(200).json({pets:pets})
-}
+const Pet = require('../models/Pet')
 
 const getById = async (req, res, next) => {
     const id = req.params.id 
@@ -32,7 +17,7 @@ const getById = async (req, res, next) => {
 
 
 const addPet = async(req, res, next) => {
-    const {name, type, description, breed, available, image, createdAt} = req.body
+    const {name, type, description, breed, availability, height, weight, color, hypoallergenic, diet, image, createdAt} = req.body
     let pet;
     try {
         pet = new Pet({
@@ -40,7 +25,12 @@ const addPet = async(req, res, next) => {
             type,
             description,
             breed,
-            available,
+            availability,
+            height,
+            weight,
+            color,
+            hypoallergenic,
+            diet,
             image,
             createdAt
         });
@@ -57,7 +47,7 @@ const addPet = async(req, res, next) => {
 
 const updatePet = async(req, res, next) => {
     const id = req.params.id;
-    const {name, type, description, breed, available, image, updatedAt} = req.body;
+    const {name, type, description, breed, availability, height, weight, color, hypoallergenic, diet, image, updatedAt} = req.body;
     let pet;
     try {
         pet = await Pet.findByIdAndUpdate(id, {
@@ -65,7 +55,12 @@ const updatePet = async(req, res, next) => {
             type,
             description,
             breed,
-            available,
+            availability,
+            height,
+            weight,
+            color,
+            hypoallergenic,
+            diet,
             image,
             updatedAt
         });
@@ -96,8 +91,45 @@ const deletePet = async(req, res, next) => {
 
 }
 
-exports.getAllPets = getAllPets;
+const getAllPets = async (req, res, next) => {
+    let pets;
+
+    try {
+        pets = await Pet.find();
+    } catch (e) {
+        console.log(e)
+    }
+
+        if (!pets) {
+            return res.status(404).json({message: "No pets found"})   
+        }
+        return res.status(200).json({pets:pets})
+}
+
+const getByType = async (req, res, next) => {
+    let pets;
+
+    const type = req.query.type.split(",")
+
+    try {
+        const list = await Promise.all(type.map(type=> {
+            return Pet.countDocuments({type:type})
+        }))
+        res.status(200).json({list})
+
+        if (!pets) {
+                return res.status(404).json({message: "No pets found"})   
+            }
+    } catch (err) {
+        console.log(err)
+    }
+       
+}
+
+
 exports.addPet = addPet;
 exports.getById = getById;
 exports.updatePet = updatePet;
 exports.deletePet = deletePet;
+exports.getAllPets = getAllPets;
+exports.getByType = getByType;

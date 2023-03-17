@@ -1,58 +1,47 @@
-const express = require('express')
-const dotenv = require('dotenv')
-const mongoose = require('mongoose')
-const petsRouter = require('./routes/pet-routes')
-const userRouter = require('./routes/user-routes')
-const cors = require('cors')
-const cookieParser = require('cookie-parser')
-const multer = require('multer')
-const app = express();
+const express = require('express');
+const dotenv = require('dotenv');
+const mongoose = require('mongoose');
+const cookieParser = require('cookie-parser');
+const jwt = require('jsonwebtoken');
+const cors = require('cors');
+const authRouter = require('./routes/auth');
+const usersRouter = require('./routes/users');
+const petsRouter = require('./routes/pets');
 
-dotenv.config()
 
-const imageModel = require('./model/Image')
 
-app.use(express.json());
-app.use(cors());
+dotenv.config();
+
+const app = express()
+
+
+const connect = async () => {
+    try {
+        await mongoose.connect(process.env.MONGODB_URI);
+        console.log('connected to Pet Adoption Database!')
+    } catch (error) {
+        throw error
+    }
+}
+
+mongoose.connection.on('disconnected', () => {
+    console.log('mongoDB disconnected')
+})
+
+mongoose.connection.on('connected', () => {
+    console.log('mongoDB is connected')
+})
+
+// middlewares
 app.use(cookieParser());
-app.use('/api', userRouter);
-app.use('/pets', petsRouter)
+app.use(cors());
+app.use(express.json());
 
+app.use("/api/auth", authRouter);
+app.use("/api/users", usersRouter);
+app.use("/api/pets", petsRouter);
 
-mongoose.connect(process.env.MongoDB_URI)
-    .then(() => console.log('Connected to Database'))
-    .then(() => 
-        app.listen(5000))
-    .then(() => console.log('listening on port 5000'))
-    .catch((e) => console.log(e));
-
-// const Storage = multer.diskStorage({
-//     destination: 'uploads',
-//     filename:(req, file, cb) => {
-//         cb(null, file.originalname)
-//     }
-// })
-
-// const upload = multer({
-//     storage: Storage
-// }).single('testImage')
-
-// app.post('/upload', (req, res) => {
-//     upload(req, res, (err) => {
-//         if(err) {
-//             console.log(err)
-//         }
-//         else {
-//             const newImage = new imageModel( {
-//                 name: req.body.name,
-//                 image: {
-//                     data: req.file.filename,
-//                     contentType: 'image/png'
-//                 }
-//             })
-//             newImage.save()
-//             .then(() => res.send('successfully uploaded'))
-//             .catch(err => console.log(err))
-//         }
-//     })
-// })
+app.listen(5000, () => {
+    connect()
+    console.log('connected on port 5000')
+})

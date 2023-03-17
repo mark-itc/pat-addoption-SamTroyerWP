@@ -1,0 +1,95 @@
+.header {
+    background-color: grey;
+    color: white;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.headerContainer {
+    width: 100%;
+    margin: 20px 0 30px 0;
+    text-align: center;
+}
+
+.headerContainer.listMode {
+    margin: 20px 0 0 0;
+}
+
+.headerList {
+    display: flex;
+    gap: 40px;
+    margin: 0 20px;
+    margin-bottom: 30px;
+    justify-content: center;
+}
+
+.headerListItem {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.headerListItem.active {
+    border: 1px solid white;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.headerDesc {
+    margin: 20px 0;
+}
+
+.headerBtn {
+    background-color: lightgray;
+    color: black;
+    font-weight: 500;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+
+}
+
+.headerSearchContainer {
+    margin: 30px;
+
+}
+
+.headerSearch {
+    height: 90px;
+    background-color: white;
+    border: 3px solid #feb302;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px 10px;
+    border-radius: 5px;
+    width: 400px;
+    margin: 0 auto;
+}
+
+.headerSearchInput {
+    width: 100px;
+    max-width: fit-content;
+    margin: 10px 10px;
+    border: none;
+}
+
+.headerSearchItem {
+    display: flex;    
+    align-items: center;
+    gap: 10px;
+}
+
+.headerIcon {
+    color: lightgray;
+}
+
+.petsDropDown {
+    color: black;
+}
+
+.petsOptions {
+    margin-left: 15px;
+}
