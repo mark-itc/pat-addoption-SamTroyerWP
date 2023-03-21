@@ -38,6 +38,15 @@
     color: #003580;
 }
 
+.btn:focus {
+    outline: 0;
+    box-shadow: none!important;
+  }
+
+.dog-bone:hover {
+    filter: invert(100%);
+}
+
 .register-button {
     background: none;
     border: none;
@@ -46,6 +55,77 @@
     box-shadow: none!important;
     
 }
-.dog-bone:hover {
-    filter: invert(100%);
+
+.register-modal {
+    margin: 50px 0 auto;
+    align-items: center;
+    position: absolute;
+    padding: 20px;
 }
+
+.login-modal {
+    margin: 90px 0 auto;
+    align-items: center;
+    position: absolute;
+    padding: 20px;
+}
+
+
+.close-button {
+    background: none;
+    border: solid red;
+    font-weight: bold;
+    color: red;
+}
+
+.or-container {
+    align-items: center;
+    color: #ccc;
+    display: flex;
+    margin: 15px 0;
+}
+
+.line-separator {
+    background-color: #ccc;
+    flex-grow: 5;
+    height: 1px;
+}
+
+.or-label {
+    flex-grow: 1;
+    margin: 0 15px;
+    text-align: center;
+}
+
+
+.forgot-password {
+    color: #0000FF;
+    text-decoration: none;
+  }
+
+  .forgot-password:hover {
+    color: #020294;
+    text-decoration: underline;
+  }
+
+  .login-footer {
+    background: none;
+    border: none;
+    color: #0000FF;
+  }
+
+  .login-footer:hover {
+    text-decoration: underline;
+    color: #020294;
+  }
+
+  .signup-footer {
+    background: none;
+    border: none;
+    color: #0000FF;
+  }
+
+  .signup-footer:hover {
+    text-decoration: underline;
+    color: #020294;
+  }

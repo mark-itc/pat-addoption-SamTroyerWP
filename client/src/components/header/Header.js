@@ -1,10 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./Header.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faDog, faCat, faUser, faMagnifyingGlass, faKey, faMouse, faPaw} from '@fortawesome/free-solid-svg-icons'
+import { useNavigate } from 'react-router-dom'
 
 
 const Header = ({ type }) => {
+
+    // const [type, setType] = useState('');
+
+    const navigate = useNavigate();
+
+    const handleSearch = () => {
+        navigate('/pets/search')
+    }
+
   return (
     <div className='header'>
       <div className={type === "list" ? "headerContainer listMode" : "headerContainer" }>
@@ -44,14 +54,14 @@ const Header = ({ type }) => {
                                 className='headerSearchInput'
                             />
                         </div>
-                        <div className='headerSearchItem'>
+                        {/* <div className='headerSearchItem'>
                             <FontAwesomeIcon icon={faDog} className='headerIcon' />
                             <input 
                                 type='text' 
                                 placeholder='Size of Pet'
                                 className='headerSearchInput'
                             />
-                        </div>
+                        </div> */}
                             {/* <label for="pets" className='petsDropDown'>Choose a type: </label>
 
                             <select name="pets" id="pets" className='petsOptions'>
@@ -62,7 +72,7 @@ const Header = ({ type }) => {
                             </select>  */}
                         
                         <div className='headerSearchItem'>
-                            <button className='headerBtn'>Search</button>
+                            <button className='headerBtn' onClick={handleSearch}>Search</button>
                         
                         </div>  
                     </div>

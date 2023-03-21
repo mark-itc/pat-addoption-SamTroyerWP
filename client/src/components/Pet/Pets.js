@@ -27,7 +27,7 @@ const Pets = () => {
             <Header type='list' />
             <div className='d-flex ' style={{minHeight: '100px' ,width: '100vw', alignItems:'center', justifyContent: 'center'}}>
                 <Link to='/'><Button className='btn btn-primary' style={{ width:'140px', maxHeight:'120px', minWidth:'90px', marginInline:'15px'  }}>Back</Button></Link>
-                <Link to='/add'><Button className='btn btn-primary' style={{ width:'140px', maxHeight:'120px', minWidth:'90px', marginInline:'15px'  }}>Add Pet</Button></Link>
+                <Link to='/pets/add'><Button className='btn btn-primary' style={{ width:'140px', maxHeight:'120px', minWidth:'90px', marginInline:'15px'  }}>Add Pet</Button></Link>
             </div>
             <ul>
                 {pets &&

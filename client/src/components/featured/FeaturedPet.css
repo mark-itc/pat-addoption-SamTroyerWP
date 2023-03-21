@@ -4,7 +4,6 @@ ul {
     justify-content:  space-around;
     align-content: center;
     flex-wrap: wrap;
-    padding-bottom: 20px;
 }
 
 li {
@@ -20,7 +19,7 @@ li {
 .card {
     padding: 1rem;
     width: 250px;
-    height: 105%;
+    height: 100%;
     box-shadow: 5px 5px 10px #ccc;
     align-items: center;
     text-align: center;
