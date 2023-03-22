@@ -106,25 +106,64 @@ const getAllPets = async (req, res, next) => {
         return res.status(200).json({pets:pets})
 }
 
-const getByType = async (req, res, next) => {
-    let pets;
+// const getByType = async (req, res, next) => {
+//     let pets;
 
-    const type = req.query.type.split(",")
+//     const type = req.query.type.split(",")
 
-    try {
-        const list = await Promise.all(type.map(type=> {
-            return Pet.countDocuments({type:type})
-        }))
-        res.status(200).json({list})
+//     try {
+//         const list = await Promise.all(type.map(type=> {
+//             return Pet.countDocuments({type:type})
+//         }))
+//         res.status(200).json({list})
 
-        if (!pets) {
-                return res.status(404).json({message: "No pets found"})   
-            }
-    } catch (err) {
-        console.log(err)
-    }
+//         if (!pets) {
+//                 return res.status(404).json({message: "No pets found"})   
+//             }
+//     } catch (err) {
+//         console.log(err)
+//     }
        
-}
+// }
+
+// const getByType = async (req, res, next) => {
+//     let pets;
+
+//     const type = res.query.type
+
+//     try {
+//         const typeCount = Pet.countDocuments({type})
+        
+//         res.status(200).json({typeCount})
+
+//         if (!pets) {
+//                 return res.status(404).json({message: "No pets found"})   
+//             }
+//     } catch (err) {
+//         console.log(err)
+//     }
+       
+// }
+
+// const getByName = async (req, res, next) => {
+//     let pets;
+
+//     const name = req.query.type.split(",")
+
+//     try {
+//         const list = await Promise.all(type => {
+//             return Pet.countDocuments({name:type})
+//         })
+//         res.status(200).json({list})
+
+//         if (!pets) {
+//                 return res.status(404).json({message: "No pets found"})   
+//             }
+//     } catch (err) {
+//         console.log(err)
+//     }
+       
+// }
 
 
 exports.addPet = addPet;
@@ -132,4 +171,5 @@ exports.getById = getById;
 exports.updatePet = updatePet;
 exports.deletePet = deletePet;
 exports.getAllPets = getAllPets;
-exports.getByType = getByType;
+// exports.getByType = getByType;
+// exports.getByName = getByName;

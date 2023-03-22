@@ -14,7 +14,8 @@ petsRouter.delete('/:id', verifyToken.verifyAdmin, petsController.deletePet)
 petsRouter.get('/find/:id', verifyToken.verifyAdmin, petsController.getById);
 
 petsRouter.get('/', petsController.getAllPets);
-petsRouter.get('/getByType', petsController.getByType);
+// petsRouter.get('/getByType', petsController.getByType);
+// petsRouter.get('/getByName', petsController.getByName)
 
 
 module.exports = petsRouter;
