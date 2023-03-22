@@ -110,7 +110,7 @@ const Navbar = () => {
             handleCloseLogin();
             loginUser()
                 // .then(() => dispatch(authActions.login))
-                .then(() => navigate('/pets'));
+                .then(() => navigate('/'));
         } catch {
             setError('Failed to login')
         }

@@ -1,14 +1,12 @@
 import React from 'react';
-import { Button } from '@mui/material';
 import './FeaturedPet.css';
-import { Link, useNavigate } from 'react-router-dom';
-import axios from 'axios';
-
 
 
 
 const FeaturedPet = (props) => {
-    const { _id, name, type, description, breed, height, weight, hypoallergenic, diet, image, createdAt } = props.pet;
+
+
+  const { _id, name, type, description, breed, height, weight, hypoallergenic, diet, image, createdAt } = props.pet;
 
 
   return (

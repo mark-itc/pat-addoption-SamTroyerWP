@@ -7,12 +7,12 @@ import { useNavigate } from 'react-router-dom'
 
 const Header = ({ type }) => {
 
-    // const [type, setType] = useState('');
+    const [petType, setPetType] = useState('');
 
     const navigate = useNavigate();
 
     const handleSearch = () => {
-        navigate('/pets/search')
+        navigate(`/pets/search?type=${petType}`, { state: {petType} })
     }
 
   return (
@@ -44,7 +44,7 @@ const Header = ({ type }) => {
                 <p className='headerDesc'>Here at Paws, we value relationships above all else.  Whether you are looking to adopt or foster, we are with you every step of the way!
                 </p>
                 <div className='headerSearchContainer'>
-                    <h2>Quick Adoption Search</h2>
+                    <h2>Basic Adoption Search</h2>
                     <div className='headerSearch'>
                         <div className='headerSearchItem'>
                             <FontAwesomeIcon icon={faCat} className='headerIcon' />
@@ -52,6 +52,7 @@ const Header = ({ type }) => {
                                 type='text' 
                                 placeholder='Type of Pet'
                                 className='headerSearchInput'
+                                onChange={e => setPetType(e.target.value)}
                             />
                         </div>
                         {/* <div className='headerSearchItem'>

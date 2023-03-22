@@ -7,10 +7,12 @@ import cat from '../img/cat.png'
 import './Home.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Footer from '../../components/footer/Footer';
+import axios from 'axios';
 
 
 export default function Home() {  
-  
+    
+ 
 
   return (
     <div>
